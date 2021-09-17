@@ -26,15 +26,24 @@
 <script setup lang="ts"></script>
 
 <style lang="scss">
+$large: 1008px;
+$medium: 640px;
+
 #get-started {
   width: 100%;
   height: 100%;
 
   #logo-wrap {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 3rem;
-    padding-left: 10%;
+    background: #36454f;
+
+    @media (min-width: $medium) {
+      justify-content: flex-start;
+      padding-left: 10%;
+    }
 
     img {
       height: 2rem;
@@ -43,55 +52,100 @@
 
   #display {
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 100%;
-    height: 50vh;
     color: #fff;
 
+    @media (min-width: $medium) {
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+
     img {
-      position: absolute;
       z-index: 0;
-      width: 100%;
+      max-width: 100%;
       height: auto;
     }
 
     #info {
+      position: absolute;
       width: 90%;
-      padding-left: 10%;
-      padding-bottom: 5%;
+      text-align: center;
       z-index: 1;
 
+      @media (min-width: 500px) {
+        width: 60%;
+      }
+
+      @media (min-width: $medium) {
+        width: 65%;
+        text-align: left;
+        padding-left: 10%;
+        padding-bottom: 5%;
+      }
+
+      @media (min-width: $large) {
+        width: 50%;
+      }
+
       p:first-child {
-        font-size: 2rem;
+        font-size: 1.5rem;
+
+        @media (min-width: $large) {
+          font-size: 2rem;
+        }
       }
 
       p:nth-child(2) {
         font-family: Lato-Light;
-        font-size: 3.5rem;
+        font-size: 2rem;
+
+        @media (min-width: $medium) {
+          font-size: 3rem;
+        }
       }
 
       p:nth-child(3) {
-        font-size: 1.5rem;
+        font-size: 1rem;
+
+        @media (min-width: $medium) {
+          font-size: 1.5rem;
+        }
       }
 
       button {
         color: #000;
-        background: #98fb98;
+        background: #8bd6bb;
         border-radius: 2rem;
-        padding: 0.5rem 1.5rem;
+        padding: 0.75rem 1.5rem;
         outline: 0;
         border: 0;
-        transition: background 0.5s ease;
+        transition: background 0.25s ease;
       }
 
       button:hover {
-        background: #3cd070;
+        background: #43bc91;
+        transition: background 0.5s ease;
+      }
+
+      button:active {
+        background: #297459;
+        transition: background 0.25s ease;
       }
     }
 
     #info > * {
       padding-bottom: 1.5rem;
+
+      @media (min-width: 450px) {
+        padding-bottom: 2rem;
+      }
+
+      @media (min-width: $medium) {
+        padding-bottom: 1.5rem;
+      }
     }
   }
 }
