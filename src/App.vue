@@ -1,9 +1,11 @@
 <template>
   <GetStarted />
+  <HowItWorks />
 </template>
 
 <script setup lang="ts">
-import GetStarted from "./components/GetStarted.vue";
+import GetStarted from "@/components/GetStarted.vue";
+import HowItWorks from "@/components/HowItWorks.vue";
 </script>
 
 <style lang="scss">
