@@ -26,6 +26,7 @@
 <script setup lang="ts"></script>
 
 <style lang="scss">
+$xlarge: 1500px;
 $large: 1008px;
 $medium: 640px;
 
@@ -45,6 +46,10 @@ $medium: 640px;
       padding-left: 10%;
     }
 
+    @media (min-width: $xlarge) {
+      padding-left: 12.5%;
+    }
+
     img {
       height: 2rem;
     }
@@ -57,10 +62,15 @@ $medium: 640px;
     position: relative;
     width: 100%;
     color: #fff;
+    background: #36454f;
 
     @media (min-width: $medium) {
       justify-content: flex-start;
       align-items: flex-end;
+    }
+
+    @media (min-width: $xlarge) {
+      justify-content: center;
     }
 
     img {
@@ -90,6 +100,11 @@ $medium: 640px;
         width: 50%;
       }
 
+      @media (min-width: $xlarge) {
+        width: 75%;
+        padding-left: 0;
+      }
+
       p:first-child {
         font-size: 1.5rem;
 
@@ -112,6 +127,10 @@ $medium: 640px;
 
         @media (min-width: $medium) {
           font-size: 1.5rem;
+        }
+
+        @media (min-width: $xlarge) {
+          width: 33%;
         }
       }
 

@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeMount, ref, watch } from "vue";
+import { computed, onBeforeMount, ref } from "vue";
 import axios from "axios";
 
 interface Content {
@@ -51,7 +51,7 @@ onBeforeMount(async () => {
     const res = await axios.get(
       "https://uqnzta2geb.execute-api.us-east-1.amazonaws.com/default/FrontEndCodeChallenge"
     );
-
+    console.log(res);
     if (res.data) {
       if (validateSteps(res.data)) {
         steps.value = res.data;
@@ -105,17 +105,22 @@ const getRecentContentIdx = (content: Content[]): number => {
 </script>
 
 <style lang="scss">
-$medium: 1024px;
+$xlarge: 1500px;
+$large: 1008px;
+$medium: 640px;
 
 #how-it-works {
   width: 100%;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #ededed;
 
   h2 {
     font-size: 3rem;
+    padding-bottom: 2rem;
   }
 
   #step-wrap {
@@ -123,14 +128,17 @@ $medium: 1024px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
 
-    @media (min-width: $medium) {
+    @media (min-width: $large) {
       flex-direction: row;
+      width: 90%;
+      padding: 2rem;
     }
 
     .step {
-      width: 100%;
+      width: 75%;
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -138,26 +146,45 @@ $medium: 1024px;
       text-align: center;
 
       @media (min-width: $medium) {
-        width: 20%;
+        width: 50%;
+      }
+
+      @media (min-width: $large) {
+        width: 25%;
+        height: 200px;
       }
 
       .step-number {
         font-size: 3.5rem;
+        line-height: 3.5rem;
+
+        @media (min-width: $medium) {
+          font-size: 4rem;
+        }
       }
 
       .spacer {
         width: 4rem;
         height: 3px;
-        background: #98fb98;
+        background: #8bd6bb;
         margin-bottom: 0.75rem;
       }
 
       p:nth-child(3) {
         font-size: 1.5rem;
+
+        @media (min-width: $medium) {
+          font-size: 2rem;
+        }
       }
 
       p:nth-child(4) {
         font-size: 1.25rem;
+        font-family: Lato-Light;
+
+        @media (min-width: $medium) {
+          font-size: 1.5rem;
+        }
       }
 
       .step-number,
