@@ -51,7 +51,7 @@ onBeforeMount(async () => {
     const res = await axios.get(
       "https://uqnzta2geb.execute-api.us-east-1.amazonaws.com/default/FrontEndCodeChallenge"
     );
-    console.log(res);
+
     if (res.data) {
       if (validateSteps(res.data)) {
         steps.value = res.data;
@@ -59,6 +59,7 @@ onBeforeMount(async () => {
     } else {
       throw new Error("Missing data from request");
     }
+
     steps.value = res.data;
   } catch (e) {
     console.log(e);
