@@ -2,12 +2,19 @@
   <section id="how-it-works">
     <h2>How It Works</h2>
     <div id="step-wrap">
-      <div class="step" v-for="(step, idx) in sortedSteps" :key="idx">
-        <div class="step-number">0{{ step.stepNumber }}</div>
-        <div class="spacer"></div>
-        <p>{{ step.versionContent[0].title }}</p>
-        <p>{{ step.versionContent[0].body }}</p>
-      </div>
+      <transition-group name="list">
+        <div
+          class="step"
+          v-for="(step, idx) in sortedSteps"
+          :key="idx"
+          :style="{ transitionDelay: '0' + (idx / 5).toString() + 's' }"
+        >
+          <div class="step-number">0{{ step.stepNumber }}</div>
+          <div class="spacer"></div>
+          <p>{{ step.versionContent[0].title }}</p>
+          <p>{{ step.versionContent[0].body }}</p>
+        </div>
+      </transition-group>
     </div>
   </section>
 </template>
@@ -138,6 +145,20 @@ $medium: 640px;
       padding: 2rem;
     }
 
+    .list-enter-active,
+    .list-leave-active {
+      transition: all 1s ease;
+    }
+    .list-enter-from,
+    .list-leave-to {
+      opacity: 0;
+      transform: translateX(-1000px);
+
+      @media (min-width: $large) {
+        transform: translateX(1000px);
+      }
+    }
+
     .step {
       width: 75%;
       padding: 1rem;
@@ -152,6 +173,7 @@ $medium: 640px;
 
       @media (min-width: $large) {
         width: 25%;
+        justify-content: space-evenly;
         height: 200px;
       }
 
@@ -175,7 +197,7 @@ $medium: 640px;
         font-size: 1.5rem;
 
         @media (min-width: $medium) {
-          font-size: 2rem;
+          font-size: 1.75rem;
         }
       }
 
