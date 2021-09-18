@@ -38,7 +38,7 @@ $medium: 640px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3rem;
+    height: 4rem;
     background: #36454f;
 
     @media (min-width: $medium) {
