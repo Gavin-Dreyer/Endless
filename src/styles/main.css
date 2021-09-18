@@ -3,6 +3,26 @@
    License: none (public domain)
 */
 
+@font-face {
+  font-family: Lato-Regular;
+  src: url("../assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: Lato-Black;
+  src: url("../assets/fonts/Lato/Lato-Black.ttf");
+}
+
+@font-face {
+  font-family: Lato-Light;
+  src: url("../assets/fonts/Lato/Lato-Light.ttf");
+}
+
+@font-face {
+  font-family: Lato-Thin;
+  src: url("../assets/fonts/Lato/Lato-Thin.ttf");
+}
+
 html,
 body,
 div,
@@ -137,5 +157,5 @@ table {
 }
 
 html {
-  background-color: #fff;
+  background: #ededed;
 }
