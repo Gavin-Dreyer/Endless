@@ -66,8 +66,6 @@ onBeforeMount(async () => {
     } else {
       throw new Error("Missing data from request");
     }
-
-    steps.value = res.data;
   } catch (e) {
     console.log(e);
   }
@@ -77,9 +75,9 @@ const steps = ref<Step[]>([]);
 const sortedSteps = computed<Step[]>(() =>
   [...steps.value]
     .sort((a, b) => {
-      if (a.stepNumber < b.stepNumber) {
+      if (Number(a.stepNumber) < Number(b.stepNumber)) {
         return -1;
-      } else if (a.stepNumber < b.stepNumber) {
+      } else if (Number(a.stepNumber) > Number(b.stepNumber)) {
         return 1;
       } else {
         return 0;
